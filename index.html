@@ -1,10 +1,22 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>My Simple HTML Page</title>
+    <title>Combat Arms Brasil Status</title>
 </head>
 <body>
-	<h1>Welcome to my page</h1>
-	<p>This is a simple paragraph of text.</p>
+    <h1>Combat Arms Brasil Status</h1>
+    <p id="status">Checking server status...</p>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $.ajax({
+                url: "status.php",
+                success: function(result) {
+                    $("#status").html(result);
+                }
+            });
+        });
+    </script>
 </body>
 </html>
