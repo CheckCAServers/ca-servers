@@ -1,10 +1,22 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Combat Arms Brasil Status</title>
+	<title>CA Brasil Check Server</title>
 </head>
 <body>
-	<h1>Combat Arms Brasil Status</h1>
-	<!--# include virtual="status.php" -->
+	<h1>CA Brasil Check Server</h1>
+	<p>
+		<?php
+			$server = '43.157.135.234';
+			$port = 10001;
+			$connection = @fsockopen($server, $port, $errno, $errstr, 5);
+			if (is_resource($connection)) {
+			    echo "Combat Arms Brasil: ONLINE";
+			    fclose($connection);
+			} else {
+			    echo "Combat Arms Brasil: OFFLINE";
+			}
+		?>
+	</p>
 </body>
 </html>
